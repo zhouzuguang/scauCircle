@@ -3,15 +3,44 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0" >
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>scaucircle</title>
+    <title>华农圈</title>
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1abc9c">
+    <meta name="apple-mobile-web-app-title" content="华农圈">
+    <meta name="application-name" content="华农圈">
+    <meta name="msapplication-TileColor" content="#1abc9c">
+    <meta name="theme-color" content="#1abc9c"> -->
+  
+    <link rel="apple-touch-startup-image" media="(device-width: 320px )" href="/img/icons/apple-launch-640x1136.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px )" href="/img/icons/apple-launch-750x1334.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px )" href="/img/icons/apple-launch-1125x2436.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
   <body>
     <noscript>
       <strong>We're sorry but scaucircle doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <script>
+      // 防止页面跳转出来
+      if (('standalone' in window.navigator) && window.navigator.standalone) {   
+        var noddy, remotes = false;   
+        document.addEventListener('click', function(event) {       
+          noddy = event.target;       
+          while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML')
+            noddy = noddy.parentNode;      
+          if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {           
+            event.preventDefault();           
+            document.location.href = noddy.href;       
+          }   
+        }, false)
+      }
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
